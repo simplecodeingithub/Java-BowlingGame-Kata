@@ -5,9 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JavaBowlingGameTest {
+    private JavaBowlingGame javaBowlingGame;
     @Test
     public void testGutterGame(){
-        JavaBowlingGame javaBowlingGame=new JavaBowlingGame();
+         javaBowlingGame=new JavaBowlingGame();
         for(int i=0;i<20;i++) {
             javaBowlingGame.roll(0);
         }
@@ -16,7 +17,7 @@ public class JavaBowlingGameTest {
 
     @Test
     public void testforAllOnes(){
-        JavaBowlingGame javaBowlingGame=new JavaBowlingGame();
+         javaBowlingGame=new JavaBowlingGame();
         for(int i=0;i<20;i++) {
             javaBowlingGame.roll(1);
         }
@@ -24,7 +25,7 @@ public class JavaBowlingGameTest {
     }
     @Test
     public void testforSpare(){
-        JavaBowlingGame javaBowlingGame=new JavaBowlingGame();
+         javaBowlingGame=new JavaBowlingGame();
         for(int i=0;i<10;i++) {
             javaBowlingGame.roll(5);
             javaBowlingGame.roll(5);
@@ -35,10 +36,19 @@ public class JavaBowlingGameTest {
 
     @Test
     public void testForStrike(){
-        JavaBowlingGame javaBowlingGame=new JavaBowlingGame();
+         javaBowlingGame=new JavaBowlingGame();
         for(int i=0;i<12;i++){
             javaBowlingGame.roll(10);
         }
         assertEquals(300,javaBowlingGame.score());
+    }
+    @Test
+    public void testforNines(){
+        javaBowlingGame=new JavaBowlingGame();
+        for(int i=0;i<10;i++){
+            javaBowlingGame.roll(9);
+            javaBowlingGame.roll(0);
+        }
+        assertEquals(90,javaBowlingGame.score());
     }
 }
