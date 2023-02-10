@@ -51,4 +51,13 @@ public class JavaBowlingGameTest {
         }
         assertEquals(90,javaBowlingGame.score());
     }
+    @Test
+    public void testforMixedRolls(){
+        javaBowlingGame=new JavaBowlingGame();
+        int rolls[]={4,6,10,2,3,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        for(int pins : rolls){
+            javaBowlingGame.roll(pins);
+        }
+        assertEquals(45,javaBowlingGame.score());
+    }
 }
