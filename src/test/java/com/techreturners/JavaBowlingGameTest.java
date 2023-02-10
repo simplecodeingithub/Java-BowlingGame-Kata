@@ -13,4 +13,13 @@ public class JavaBowlingGameTest {
         }
         assertEquals(0,javaBowlingGame.score());
     }
+
+    @Test
+    public void testforAllOnes(){
+        JavaBowlingGame javaBowlingGame=new JavaBowlingGame();
+        for(int i=0;i<20;i++) {
+            javaBowlingGame.roll(1);
+        }
+        assertEquals(20,javaBowlingGame.score());
+    }
 }
