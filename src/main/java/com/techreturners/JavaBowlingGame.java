@@ -6,6 +6,9 @@ public class JavaBowlingGame {
     private int score=0;
     public void roll(int pins) {
         //roll method is used to record the no of pins knocked down in each roll
+        if(pins<0 || pins >10){
+            throw new IllegalArgumentException("Invalid input,the number of pins should be between 0 to 10 and no special character");
+        }
         rolls[currentRoll++]=pins;
     }
 

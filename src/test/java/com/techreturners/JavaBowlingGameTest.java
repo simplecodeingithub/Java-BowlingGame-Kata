@@ -3,6 +3,7 @@ package com.techreturners;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class JavaBowlingGameTest {
     private JavaBowlingGame javaBowlingGame;
@@ -59,5 +60,25 @@ public class JavaBowlingGameTest {
             javaBowlingGame.roll(pins);
         }
         assertEquals(45,javaBowlingGame.score());
+    }
+    @Test
+    public void testInvalidInput() {
+        javaBowlingGame = new JavaBowlingGame();
+        try {
+            javaBowlingGame.roll(-1);
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Invalid input,the number of pins should be between 0 to 10 and no special character", ex.getMessage());
+        }
+
+    }
+    @Test
+    public void testSpecialCharacter() {
+        javaBowlingGame = new JavaBowlingGame();
+        try {
+            javaBowlingGame.roll('@');
+        } catch (IllegalArgumentException ex) {
+            assertEquals("Invalid input,the number of pins should be between 0 to 10 and no special character", ex.getMessage());
+        }
+
     }
 }
